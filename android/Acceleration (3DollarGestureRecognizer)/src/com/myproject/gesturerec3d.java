@@ -10,11 +10,14 @@ package com.myproject;
 
 
 
-import java.math.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Set;
 
-import android.util.*;
+import android.util.Log;
 
 public class gesturerec3d extends GestureRecognizer {
 	
@@ -41,7 +44,7 @@ public class gesturerec3d extends GestureRecognizer {
 	public int resample_amount;
 	
 	public boolean DEBUG = true;
-	public boolean VERBOSE = false;
+	public boolean VERBOSE = true;
 	
 	public boolean ROTATE = true;
 	public GestureLibrary gestureLibrary = null;

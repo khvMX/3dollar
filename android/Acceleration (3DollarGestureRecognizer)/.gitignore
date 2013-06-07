@@ -1,1 +1,2 @@
-android/Acceleration (3DollarGestureRecognizer)/bin
+bin/*
+gen/*

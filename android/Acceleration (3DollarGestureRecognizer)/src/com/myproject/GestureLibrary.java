@@ -15,9 +15,12 @@
 package com.myproject;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map.Entry;
-import java.util.Arrays.*;
+import java.util.Set;
 
 import android.content.Context;
 import android.util.Log;
