@@ -39,7 +39,7 @@ public class Gesture {
 			out +="[ ";
 			for (float [] p : trace)
 			{
-				out += "["+ p[0]+","+p[1]+","+p[0]+"], ";
+				out += "["+ p[0]+","+p[1]+","+p[2]+"], ";
 			}
 			out +="]";
 		}
@@ -62,7 +62,7 @@ public class Gesture {
 			out +="[ ";
 			for (float [] p : this.gestureTrace)
 			{
-				out += "["+ p[0]+","+p[1]+","+p[0]+"], ";
+				out += "["+ p[0]+","+p[1]+","+p[2]+"], ";
 			}
 			out +="]";
 		}

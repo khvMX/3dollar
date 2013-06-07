@@ -196,7 +196,9 @@ implements android.content.DialogInterface.OnClickListener
 		// recordingGestureTrace = null;
 			// note that the arraylist is being copied
 			statusText.setText("Saving gesture to DB...");
+			Log.w("TAG", "init size = " + String.valueOf(recordingGestureTrace.size()));
 			Gesture ng = new Gesture(recordingGestureIDString, new ArrayList<float[]>(recordingGestureTrace));
+			Log.w("TAG", "same size = " + String.valueOf(ng.gestureTrace.size()));
 			// add gesture to library but prepare with recognizer settings first
 			myGestureLibrary.addGesture(ng.gestureID, this.myGestureRecognizer.prepare_gesture_for_library(ng), false);
 			if (DEBUG) Log.d("stopRecordingGesture", "Recorded Gesture ID " + recordingGestureIDString + " Gesture Trace Length:"+ recordingGestureTrace.size());
@@ -206,14 +208,15 @@ implements android.content.DialogInterface.OnClickListener
 			statusText.setText("Recognizing gesture...");
 			// stop accelerometer
 	    	mSensorManager.unregisterListener(sensorListener);
-	    	Log.w("TAG", "unregistered listener!");
-			
+	    	
 			// save a reference to activity for this context
-			Thread t = new Thread()
-			{
-				public void run()
-				{
+//			Thread t = new Thread()
+//			{
+//				public void run()
+//				{
+						Log.w("TAG", "init size = " + String.valueOf(recordingGestureTrace.size()));
 						Gesture candidate = new Gesture(null, new ArrayList<float[]>(recordingGestureTrace));
+						Log.w("TAG", "same size = " + String.valueOf(candidate.gestureTrace.size()));
 						if (DEBUG) Log.d("stopRecordingGesture-recogThread","Attempting Gesture Recognition Trace-Length: " + recordingGestureTrace.size());
 						String gid = myGestureRecognizer.recognize_gesture(candidate);
 						if (DEBUG) Log.d("stopRecordingGesture-recogThread","===================================== \n" +
@@ -224,10 +227,10 @@ implements android.content.DialogInterface.OnClickListener
 						
 						// show the alert
 						alertHandler.post(showAlert);
-
-				}
-			};	
-			t.start();	
+//
+//				}
+//			};	
+//			t.start();	
 			if (DEBUG) Log.d("stopRecordingGesture", "STATE_RECOGNIZE --> thread dispatched");
 			break;	
 		case STATE_LIBRARY:

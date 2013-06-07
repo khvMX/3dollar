@@ -166,6 +166,7 @@ public class gesturerec3d extends GestureRecognizer {
 		
 		this.normalized_gesture = this.scale_to_cube(this.rotated_gesture, this.bbox_size);*/
 		
+		Log.w("TAG", "g size just before lib = " + String.valueOf(g.gestureTrace.size()));
 		this.prepare_gesture_for_library(g);
 		
 		if (this.gestureLibrary.hasGestures())
@@ -508,15 +509,17 @@ public class gesturerec3d extends GestureRecognizer {
 	
 	public ArrayList<float[]> rotate_to_zero(ArrayList<float[]> points)
 	{
+		Log.w("TAG", "points size = " + String.valueOf(points.size()));
 		// Rotation Matrix is Buggy!!!
 		ArrayList<float[]> rotated_points = new ArrayList<float[]>(250);
 		float[] centroid = this.centroid(points);
 		if (DEBUG) Log.d("rotate_to_zero", "centroid: " + centroid);
-		
+		Log.w("TAG", "rotating!!!");
 		float theta = this.angle3(centroid, points.get(0));
 		float[] axis = this.unit_vector(this.orthogonal(points.get(0), centroid));
+		Log.w("TAG", "rotating with matrix!!!");
 		float[][] r_matrix = this.rotationMatrixWithVector3(axis, theta);
-		
+		Log.w("TAG", "aaaaaaaaaaaaaa!!!");
 		Iterator<float[]> i = points.iterator();
 		
 		while(i.hasNext())
