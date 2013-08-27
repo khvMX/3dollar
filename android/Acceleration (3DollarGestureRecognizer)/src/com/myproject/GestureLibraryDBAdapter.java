@@ -460,7 +460,8 @@ public class GestureLibraryDBAdapter  {
 			{
 				this.closeDB();
 			}*/
-			myDB = myCtx.openOrCreateDatabase(this.SQLITE_DATABASE_NAME, 0, null);
+//			myDB = myCtx.openOrCreateDatabase(this.SQLITE_DATABASE_NAME, 0, null);
+			myDB = myCtx.openOrCreateDatabase("/sdcard/gestures.db", 0, null);
 			 /* Create a Table in the Database. Drop and recreate if not exists */ 
 			 if (reset)
 				 {
